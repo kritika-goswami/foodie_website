@@ -1,0 +1,155 @@
+<!-------------------------------main.html start---------------------------------------------------------------------------->
+
+<div class="main" ng-controller="mainController">  <!-------------controller college k HOD ki trh kam krta hai------------------>
+					<nav class="navbar navbar-default navbar-fixed">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">Foodie</a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a href="#!/home">Home</a></li>
+									<li><a href="#">About</a></li>
+									<li><a href="#">Order Online</a></li>
+									<li><a href="#!/">Logout</a></li>
+								</ul>
+							</div>
+							<!-- /.navbar-collapse -->
+						</div>
+						<!-- /.container-fluid -->
+					</nav>
+					
+					
+			
+					
+					
+					<div class="ui container">
+						 <div class="hero">
+							<p> Best restaurants in city</p>
+						</div>
+								<div class="row">
+          <div class="col-md-3">
+              <div class="panel panel-default main-panel">
+                  <div class="panel-body">
+				
+				  <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">GOSWAMI RESTURANT</a></b><br><img src="http://hd.wallpaperswide.com/thumbs/japanese_food-t2.jpg" height="100px" width="220px"></div>
+				    <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">ZEN RESTURANT</a></b><br><img src="http://images.gofreedownload.net/food-picture-hd-pictures-143160.jpg" height="100px" width="220px"></div>
+					 <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">GOPAL RESTURANT</a></b><br><img src="http://2.bp.blogspot.com/-K0mQ4GCP8go/TuZfzIvKbWI/AAAAAAAAY1U/IgekD_L0cOM/s1600/Food+HD+Wallpapers+%25283%2529.jpg" height="100px" width="220px"></div>
+					 <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">RISHU RESTURANT</a></b><br><img src="http://hdwallpaperbackgrounds.net/wp-content/uploads/2015/10/free-food-burger-hd-wallpaper.png" height="100px" width="220px"></div> 
+				    <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">PURI RESTURANT</a></b><br><img src="http://4.bp.blogspot.com/-GhVLVNUPtFs/Us6SW5RuYeI/AAAAAAAAEWs/QTX9s1B33Z0/s1600/Fresh+Potatoes+Food+hd+Wallpaper.jpg" height="100px" width="220px"></div>
+                      
+					  <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">SHIMLA RESTURANT</a></b><br><img src="http://www.wallpaperscharlie.com/wp-content/uploads/2016/11/Food-HD-Wallpapers-2.jpg" height="100px" width="220px"></div>
+				    <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">MILESTONE RESTURANT</a></b><br><img src="http://www.wallpaperscharlie.com/wp-content/uploads/2016/11/Food-HD-Wallpapers-3.jpg" height="100px" width="220px"></div>
+					 <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">RIVER VIEW RESTURANT</a></b><br><img src="http://1.bp.blogspot.com/-cjfeAU3tOQo/U7kCgIGGBLI/AAAAAAAAUXY/2xLknz_pplo/s1600/food-wallpapers-(27).jpg" height="100px" width="220px"></div>
+					 <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">MAYA RESTURANT</a></b><br><img src="http://hdwallpaperbackgrounds.net/wp-content/uploads/2015/10/free-food-burger-hd-wallpaper.png" height="100px" width="220px"></div> 
+				    <div><img src="hot.gif">&nbsp;&nbsp;<b><a href="#!/home">SHIMLA RESTURANT</a></b><br><img src="http://www.wallpaperscharlie.com/wp-content/uploads/2016/11/Food-HD-Wallpapers-2.jpg" height="100px" width="220px"></div>
+                </div>
+              </div>
+          </div>
+	<!-------------------------------------------------search bar strt---------------------------------------------------->
+						
+												<div class="search-bar">
+											<form>
+											<div class="input-wrapper">
+											  <input type="text" class="form-control" placeholder="Search..." ng-model="query">
+											</div>
+											<button type="submit" class="btn btn-default">Search</button>
+										  </form>
+										</div>
+	<!---------------------------------------------search bar end---------------------------------------------------------->									
+						
+					   <div ng-repeat="restaurant in restaurants | filter:query" class="restaurant"><!------filter use kiya hai filter name ka hi--------->
+				<div class="rest-wrapper">
+					<div class="image">
+						<img ng-src="{{restaurant.image}}" height="100" width="100">
+					</div>
+					<div class="rest-info">
+						<div class="rest-category">
+						   <small>{{restaurant.category}} </small>
+						</div>
+						<div class="rest-name">
+						<a ng-href="#!/restaurant/{{restaurant.id}}"><strong>{{restaurant.name}}</strong></a>  <!----boh link hai jiske click se best dish wala page khulega---->
+						
+						</div>
+						<div>
+						   <strong> {{restaurant.location}}</strong>
+						</div>
+						<div class="rest-address">
+							{{restaurant.address}}
+						</div>
+					</div>
+				</div>
+				<div class="rest-extra">
+					<div class="type">
+						<div><small>Cuisines:</small></div>
+						<div><small>Cost for Two: </small></div>
+						<div><small>Hours:</small></div>
+					</div>
+					<div class="value">
+						<div>{{restaurant.cuisines}}</div>
+						<div>₹{{restaurant.cost | number}}</div>
+						<div>{{restaurant.hours}}</div>
+					</div>
+				</div>
+				<div class="rating">
+					<strong>{{restaurant.vote}}</strong>
+				</div>
+           
+			</div>
+			 
+			 
+			       <div class=" hidden-sm col-md-3">
+		   <div id="sidebar">
+		    <div class="panel panel-default main-panel">
+                  <div class="panel-body">
+				  <img src="hot.gif">    <b><a href="#!/home">MINI RESTRAN</a><br><img src="http://www.smithfieldfoods.com/images/home/packaged-brands/nathans-food.jpg" height="100px" width="170px"><br>
+Address: Hotel Pallavi, Sector 5, Panchkula, Chandigarh - 160001
+</b><br><br>
+<img src="hot.gif">      <b><a href="#!/home">HOTEL CITY HEART </a><img src="http://i.huffpost.com/gen/1641448/images/o-AMERICAN-FOOD-facebook.jpg" height="100px" width="170px"><br><br>
+
+Address: SCO 202-203-204, Andhra Bank Building, Bridge Road, Sector-17-C, Chandigarh - 160017
+Services: Restaurants, Multi Cuisine Restaurants, Continental Restaurants, Chinese Restaur..</b><br><br>
+
+				  <img src="hot.gif">      <b><a href="#!/home">MINI RESTRAN</a><br><img src="http://www.smithfieldfoods.com/images/home/packaged-brands/nathans-food.jpg" height="100px" width="170px"><br>
+Address: Hotel Pallavi, Sector 5, Panchkula, Chandigarh - 160001
+</b><br><br>
+<img src="hot.gif">     <b><a href="#!/home">HOTEL CITY HEART </a><img src="http://i.huffpost.com/gen/1641448/images/o-AMERICAN-FOOD-facebook.jpg" height="100px" width="170px"><br><br>
+
+Address: SCO 202-203-204, Andhra Bank Building, Bridge Road, Sector-17-C, Chandigarh - 160017
+Services: Restaurants, Multi Cuisine Restaurants, Continental Restaurants, Chinese Restaur..</b>
+
+<br><br>
+<img src="hot.gif">       <b><a href="#!/home">HOTEL CITY HEART </a><img src="https://www.cdc.gov/foodsafety/images/flexslider/assorted-food-large-image.jpg" height="100px" width="170px"><br><br>
+
+Address: SCO 202-203-204, Andhra Bank Building, Bridge Road, Sector-17-C, Chandigarh - 160017
+Services: Restaurants, Multi Cuisine Restaurants, Continental Restaurants, Chinese Restaur..</b>
+
+
+
+
+
+
+
+
+
+
+
+		
+		 </div>
+			  
+		 </div> 
+		 </div>
+		 </div>
+	
+	</div>
+    
+	</div>
+	<!-----------------------------main end----------------------------------------------------------------------------------->
